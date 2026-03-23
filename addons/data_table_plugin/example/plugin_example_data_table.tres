@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DataTable" format=3 uid="uid://cr082wj5qvccx"]
 
 [ext_resource type="Script" uid="uid://buk2mb3au156s" path="res://addons/data_table_plugin/data_table/data_table.gd" id="1_j4xbk"]
-[ext_resource type="Script" uid="uid://dhw7hykkail4v" path="res://addons/data_table_plugin/example/example_table_row.gd" id="2_hn4x1"]
+[ext_resource type="Script" uid="uid://dhw7hykkail4v" path="res://addons/data_table_plugin/example/plugin_example_table_row.gd" id="2_hn4x1"]
 
 [resource]
 script = ExtResource("1_j4xbk")

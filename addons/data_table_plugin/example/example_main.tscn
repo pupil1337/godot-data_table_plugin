@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://ds6qn1o8kwy2b"]
-
-[ext_resource type="Script" uid="uid://s74xy0oavkm4" path="res://addons/data_table_plugin/example/example_main.gd" id="1_0dwdn"]
-
-[node name="ExampleMain" type="Node" unique_id=464248536]
-script = ExtResource("1_0dwdn")

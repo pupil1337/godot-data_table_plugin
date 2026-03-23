@@ -2,7 +2,7 @@ extends Node
 
 
 # test DataTable
-var test_data_table: DataTable = load("res://addons/data_table_plugin/example/example_data_table.tres")
+var test_data_table: DataTable = load("res://addons/data_table_plugin/example/plugin_example_data_table.tres")
 
 
 func _ready() -> void:

@@ -1,0 +1,96 @@
+[gd_resource type="Resource" script_class="DataTable" format=3 uid="uid://bl3icm26mb3d2"]
+
+[ext_resource type="Texture2D" uid="uid://ddxmxgyyfy8mn" path="res://icon.svg" id="1_8lqhh"]
+[ext_resource type="Script" uid="uid://buk2mb3au156s" path="res://addons/data_table_plugin/data_table/data_table.gd" id="1_10fjh"]
+[ext_resource type="Script" uid="uid://d18svytus00ra" path="res://test_table_row.gd" id="2_fswvo"]
+
+[resource]
+script = ExtResource("1_10fjh")
+table_row_script = ExtResource("2_fswvo")
+datas = {
+"0": {
+"test_int": 1,
+"test_packed_scene": null,
+"test_res": ExtResource("1_8lqhh"),
+"test_string": ""
+},
+"1221312": {
+"test_int": 2,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": "fsdafdsafdsafdsafdsafsdafdsafasdf"
+},
+"34": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": ""
+},
+"RowName_7392444095796": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": "fdsafdsffdsafdsafdsafdsafsdafdsafsdafsdaf"
+},
+"RowName_7396722285218": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": ""
+},
+"RowName_7405278666253": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": ""
+},
+"RowName_8233452380357": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": ""
+},
+"RowName_8237814456157": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": ""
+},
+"RowName_8242109423574": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": ""
+},
+"RowName_8246404390032": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": ""
+},
+"RowName_8250699358133": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": ""
+},
+"RowName_8254994324913": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": ""
+},
+"RowName_8259356400996": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": ""
+},
+"RowName_8263701699798": {
+"test_int": 333,
+"test_packed_scene": null,
+"test_res": null,
+"test_string": ""
+}
+}
+metadata/_custom_type_script = "uid://buk2mb3au156s"
