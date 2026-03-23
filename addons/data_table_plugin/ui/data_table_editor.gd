@@ -82,11 +82,11 @@ var dont_open_table_at_frame: int
 @onready var property_vbox: VBoxContainer = $VBoxContainer/Panel/HSplitProperty/ScrollRowProperty/VBoxRowProperty
 
 
-# 增加一行 按钮
+# AddRow button
 @onready var add_row_btn: Button = $VBoxContainer/ScrollContainer/HBoxContainer/AddRowButton
-# 删除此行 按钮
+# DeleteRow button
 @onready var del_row_btn: Button = $VBoxContainer/ScrollContainer/HBoxContainer/DeleteRowButton
-# 编辑.tres 按钮
+# DefaultProperty button
 @onready var default_property_btn: Button = $VBoxContainer/ScrollContainer/HBoxContainer/DefaultPropertyButton
 
 

@@ -5,15 +5,10 @@
 数据表格插件，可以创建一个`Resource`类型的表格类，然后在godot中编辑它。
 
 
-## 主要概念
-**DataTable**: 一个`Resource`类型，在其中声明了一个`Dictionary`作为储存数据的变量  
-**TableRowBase**: 一个`Object`类型，需要被用户继承并且需要在子类中声明`@export var`  
-
-*运作原理就是`TableRowBase子类`定义了表结构，`DataTable`引用它。  
-**序列化**：当在编辑器UI中增加一行Row的时候，会new一个`TableRowBase子类`对象，
-然后其实例放入到`DataTable的data`中，当`ResourceSaver.save(DataTable)`时候引擎会自动序列化这个data。  
-**反序列化**同理：遍历data创建定义的`TableRowBase`子类，用`var_to_str`将data的数据反序列化到`TableRowBase`实例中*  
-**检查器面板**: 直接调用`EditorInterface.get_inspector().edit(Object)`即可编辑某个`Object`
+## 特性
+- 使用Resource作为表格，表格数据存储在Dictionary中，插件创建了UI使其可读性提高
+- 固定表结构元素类型，但一个表结构就需要创建一个Script
+- 使用检查器面板设置数据
 
 
 ## 用法
@@ -46,20 +41,32 @@ func foreach_row(callback: Callable) -> void
 ```
 
 
+## 实现原理
+**DataTable**: 一个`Resource`类型，在其中声明了一个`Dictionary`作为储存数据的变量  
+**TableRowBase**: 一个`Object`类型，需要被用户继承并且需要在子类中声明`@export var`  
+
+*运作原理就是`TableRowBase子类`定义了表结构，`DataTable`引用它。*  
+**序列化**_：当在编辑器UI中增加一行Row的时候，会new一个`TableRowBase子类`对象，然后其实例放入到`DataTable的data`中，当`ResourceSaver.save(DataTable)`时候引擎会自动序列化这个data。_  
+**反序列化[到编辑器ui]**_：遍历data，同时new Object(用于检查器编辑) 和 new所需要的UI，并且用`var_to_str`将data的数据反序列化到UI中_  
+**反序列化[game运行时]**_：遍历data直接读取即可，只不过插件将原来的Variant类型转换成了`TableRowBase子类`_  
+**检查器面板**_: 直接调用`EditorInterface.get_inspector().edit(Object)`即可编辑某个`Object`_
+
+
+## TODO
+1. 编辑器UI-拖动Row以调整其位置
+2. 编辑器UI-复制粘贴某行数据
+3. 编辑器UI-搜索文本内容
+
 
 
 # godot-data_table_plugin
 A data table plugin that allows you to create a `Resource` and edit it in godot.
 
 
-## Main Concepts
-**DataTable**: A `Resource` type that declare a `Dictionary` as the variable for storing data.  
-**TableRowBase**: An `Object` type that needs to be inherited by the user, with `@export var` declared in the subclass.
-
-*The operating principle is that the `TableRowBase subclass` defines the table structure, and `DataTable` references it.  
-**Serialization**: When a row is added through the editor UI, a new `TableRowBase subclass` object is created and its instance is placed into the DataTable's data. When `ResourceSaver.save(DataTable)` is called, the engine automatically serializes this data.  
-**Deserialization**: Similarly, it iterates through the data, creates the defined `TableRowBase subclas`s, and uses `var_to_str` to deserialize the data back into the `TableRowBase` instance.*  
-**Inspector Panel**: Directly call `EditorInterface.get_inspector().edit(Object)` to edit a specific Object.
+## Features
+- Use Resource as the table, with table data stored in a Dictionary. The plugin provides a UI to improve readability.
+- Fixed table structure element types, but each table structure requires creating a Script.
+- Use the inspector panel to set data.
 
 
 ## Usage
@@ -90,3 +97,20 @@ At this point, you have created a DataTable with an empty table structure (since
 func find_row(row_name: String, warn_if_row_missing: bool = true) -> TableRowBase
 func foreach_row(callback: Callable) -> void
 ```
+
+
+## Implementation principle
+**DataTable**: A `Resource` type that declare a `Dictionary` as the variable for storing data.  
+**TableRowBase**: An `Object` type that needs to be inherited by the user, with `@export var` declared in the subclass.
+
+*The operating principle is that the `TableRowBase subclass` defines the table structure, and `DataTable` references it.*  
+**Serialization**_: When a row is added through the editor UI, a new `TableRowBase subclass` object is created and its instance is placed into the DataTable's data. When `ResourceSaver.save(DataTable)` is called, the engine automatically serializes this data._  
+**Deserialization[to Editor UI]**_: Foreach the data to new Object(for inspector) and new UIRow, and use `var_to_str` to show value in main ui_  
+**Deserialization[in game]**_: Foreach data and direct read, the plugin only new a `TableRowBase subclass` for read_  
+**Inspector Panel**_: Directly call `EditorInterface.get_inspector().edit(Object)` to edit a specific Object._
+
+
+## TODO
+1. Editor UI - Drag a row to re-order it
+2. Editor UI - Copy and paste row data
+3. Editor UI - Search text content
