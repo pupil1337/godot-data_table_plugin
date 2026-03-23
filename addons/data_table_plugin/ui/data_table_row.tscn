@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cfgwdt2fkaegh"]
+
+[ext_resource type="Script" uid="uid://cpofoqinat20e" path="res://addons/data_table_plugin/ui/data_table_row.gd" id="1_ub8i0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jah5x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub8i0"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.91259503, 0.80079746, 7.70092e-07, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jah5x"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.91887414, 0.7769506, 0.5577316, 1)
+border_blend = true
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="DataTableRow" type="CenterContainer" unique_id=168612399]
+script = ExtResource("1_ub8i0")
+
+[node name="Button" type="Button" parent="." unique_id=920095435]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jah5x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ub8i0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jah5x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ub8i0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Button" unique_id=357676449]
+layout_mode = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 1

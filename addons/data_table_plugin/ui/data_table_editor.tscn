@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://b0rq1vs75fqo6"]
+
+[ext_resource type="Script" uid="uid://brydovhuvdjg3" path="res://addons/data_table_plugin/ui/data_table_editor.gd" id="1_j4ocv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4ocv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pdpr"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4ocv"]
+bg_color = Color(0.67696893, 0.577451, 0.5051563, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8940747, 0.8077826, 0.19979876, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_size = 2
+
+[node name="DataTableEditor" type="Control" unique_id=861605667]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_j4ocv")
+
+[node name="TestLabel" type="Label" parent="." unique_id=39422680]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.000023
+grow_horizontal = 2
+text = "DataTable Plugin testing..."
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1498072857]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_top = 100.0
+offset_right = -150.0
+offset_bottom = -119.999756
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CurrTableLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=403404820]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j4ocv")
+bbcode_enabled = true
+text = "CurrOpened: null"
+fit_content = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1607300496]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=319006716]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="AddRowButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1489639397]
+layout_mode = 2
+disabled = true
+text = "Add
+add row"
+
+[node name="DeleteRowButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer" unique_id=742081773]
+layout_mode = 2
+disabled = true
+text = "Delete
+delete row
+"
+
+[node name="Control" type="Control" parent="VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1302360629]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DefaultPropertyButton" type="Button" parent="VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1316241036]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Default
+Edit .tres"
+
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=2140654401]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2pdpr")
+
+[node name="HSplitRowName" type="HSplitContainer" parent="VBoxContainer/Panel" unique_id=971701584]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/autohide = 0
+theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_j4ocv")
+
+[node name="HBoxRowName" type="HBoxContainer" parent="VBoxContainer/Panel/HSplitRowName" unique_id=1331829336]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelRowName" type="Label" parent="VBoxContainer/Panel/HSplitRowName/HBoxRowName" unique_id=1817195314]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RowName"
+horizontal_alignment = 1
+
+[node name="ScrollRowHeader" type="ScrollContainer" parent="VBoxContainer/Panel/HSplitRowName" unique_id=1957008525]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="HBoxRowHeader" type="HBoxContainer" parent="VBoxContainer/Panel/HSplitRowName/ScrollRowHeader" unique_id=204943021]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HSplitProperty" type="HSplitContainer" parent="VBoxContainer/Panel" unique_id=1028012186]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+dragging_enabled = false
+
+[node name="ScrollRowNameProperty" type="ScrollContainer" parent="VBoxContainer/Panel/HSplitProperty" unique_id=545956137]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="VBoxRowNameProperty" type="VBoxContainer" parent="VBoxContainer/Panel/HSplitProperty/ScrollRowNameProperty" unique_id=1987109655]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollRowProperty" type="ScrollContainer" parent="VBoxContainer/Panel/HSplitProperty" unique_id=869096950]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxRowProperty" type="VBoxContainer" parent="VBoxContainer/Panel/HSplitProperty/ScrollRowProperty" unique_id=1081059356]
+layout_mode = 2
+
+[node name="TipsLabel" type="RichTextLabel" parent="." unique_id=754107755]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=pink]Double-click the table file in the file system to open.[/color]"
+fit_content = true
+horizontal_alignment = 1

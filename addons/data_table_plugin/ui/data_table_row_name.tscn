@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://45ygessuifd4"]
+
+[ext_resource type="Script" uid="uid://b47wgax1ct2h5" path="res://addons/data_table_plugin/ui/data_table_row_name.gd" id="1_4o1fm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4o1fm"]
+
+[sub_resource type="GDScript" id="GDScript_4o1fm"]
+script/source = "@tool
+extends LineEdit
+
+
+# 进入编辑时 原始text
+static var origin_text: String
+
+
+func _ready() -> void:
+	editing_toggled.connect(_on_editing_toggled)
+
+
+# 双击时 开启编辑
+func _gui_input(event: InputEvent) -> void:
+	var mouse_button_event: InputEventMouseButton = event as InputEventMouseButton
+	if mouse_button_event:
+		if mouse_button_event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
+			if mouse_button_event.double_click:
+				editable = true
+				select_all()
+				edit()
+
+
+# 开/关编辑时 判断合法性
+func _on_editing_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		origin_text = text
+	else:
+		if !(get_parent().get_parent().owner as DataTableEditor).try_rename_row_name(origin_text, text):
+			text = origin_text
+		editable = false
+"
+
+[node name="DataTableRowName" type="PanelContainer" unique_id=1056951496]
+offset_right = 82.0
+offset_bottom = 31.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4o1fm")
+script = ExtResource("1_4o1fm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1192952598]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=183176171]
+layout_mode = 2
+tooltip_text = "Index"
+mouse_filter = 1
+text = "6"
+
+[node name="TextEdit" type="LineEdit" parent="HBoxContainer" unique_id=852308307]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Row Name"
+text = "哈哈"
+editable = false
+script = SubResource("GDScript_4o1fm")
