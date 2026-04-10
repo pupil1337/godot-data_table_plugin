@@ -1,4 +1,5 @@
 @tool
+class_name DataTablePlugin
 extends EditorPlugin
 ## DataTable Plugin
 
@@ -6,11 +7,14 @@ extends EditorPlugin
 @warning_ignore_start("return_value_discarded")
 
 
+static var plugin_instance: EditorPlugin = null
+
 ## DataTable Editor UI
 var data_table_editor: DataTableEditor
 
 
 func _enter_tree() -> void:
+	plugin_instance = self
 	# add editor ui
 	data_table_editor = (load("res://addons/data_table_plugin/ui/data_table_editor.tscn") as PackedScene).instantiate()
 	data_table_editor.visible = false
@@ -23,6 +27,7 @@ func _enter_tree() -> void:
 
 
 func _exit_tree() -> void:
+	plugin_instance = null
 	# set inspector edit null
 	EditorInterface.get_inspector().edit(null)
 	# remove editor ui

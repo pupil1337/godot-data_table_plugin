@@ -7,90 +7,76 @@
 [resource]
 script = ExtResource("1_10fjh")
 table_row_script = ExtResource("2_fswvo")
-datas = {
-"0": {
+storage_datas = Array[Array]([["0", {
 "test_int": 1,
 "test_packed_scene": null,
 "test_res": ExtResource("1_8lqhh"),
 "test_string": ""
-},
-"1221312": {
+}], ["1221312", {
 "test_int": 2,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": "fsdafdsafdsafdsafdsafsdafdsafasdf"
-},
-"34": {
+}], ["34", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": ""
-},
-"RowName_7392444095796": {
+}], ["RowName_7392444095796", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": "fdsafdsffdsafdsafdsafdsafsdafdsafsdafsdaf"
-},
-"RowName_7396722285218": {
+}], ["RowName_7396722285218", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": ""
-},
-"RowName_7405278666253": {
+}], ["RowName_7405278666253", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": ""
-},
-"RowName_8233452380357": {
+}], ["RowName_8233452380357", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": ""
-},
-"RowName_8237814456157": {
+}], ["RowName_8237814456157", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": ""
-},
-"RowName_8242109423574": {
+}], ["RowName_8242109423574", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": ""
-},
-"RowName_8246404390032": {
+}], ["RowName_8246404390032", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": ""
-},
-"RowName_8250699358133": {
+}], ["RowName_8250699358133", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": ""
-},
-"RowName_8254994324913": {
+}], ["RowName_8254994324913", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": ""
-},
-"RowName_8259356400996": {
+}], ["RowName_8259356400996", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": ""
-},
-"RowName_8263701699798": {
+}], ["RowName_8263701699798", {
 "test_int": 333,
 "test_packed_scene": null,
 "test_res": null,
 "test_string": ""
-}
-}
+}]])
+_version = "1.0.1"
 metadata/_custom_type_script = "uid://buk2mb3au156s"

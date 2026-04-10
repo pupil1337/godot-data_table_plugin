@@ -166,7 +166,7 @@ func on_open_data_table(data_table: DataTable) -> void:
 		for j: DataTableTypes.UIColInfo in curr_table_col_info_list:
 			new_datas[i][j.name] = (curr_data_table.datas[i] as Dictionary).get(j.name, curr_table_row_template_object.get(j.name))
 	curr_data_table.datas = new_datas
-	ResourceSaver.save(curr_data_table)
+	curr_data_table.save()
 	# Deserialize data from .tres
 	var index: int = 0
 	for row_name: String in curr_data_table.datas:
@@ -218,7 +218,7 @@ func on_property_edited(property: String) -> void:
 	var new_value: Variant = curr_edit_object.get(property)
 	# write to .tres
 	curr_data_table.datas[curr_data_table.datas.keys()[curr_select_index]][property] = new_value
-	ResourceSaver.save(curr_data_table)
+	curr_data_table.save()
 	# update Row ui
 	(property_vbox.get_child(curr_select_index) as DataTableRow).on_change_property(property, new_value)
 	# update curr row max size.y
@@ -260,7 +260,7 @@ func try_rename_row_name(old_row_name: String, new_row_name: String) -> bool:
 		else:
 			new_dictionary[key] = curr_data_table.datas[key]
 	curr_data_table.datas = new_dictionary
-	ResourceSaver.save(curr_data_table)
+	curr_data_table.save()
 	return true
 
 
@@ -309,7 +309,7 @@ func on_filesystem_changed() -> void:
 			# set failed
 			else:
 				curr_data_table.table_row_script = null
-				ResourceSaver.save(curr_data_table)
+				curr_data_table.save()
 				push_error(curr_data_table.resource_path.get_file(), " TableRowScript must Inherit from TableRowBase")
 #endregion
 
@@ -346,7 +346,7 @@ func _on_add_row_pressed() -> void:
 	for i: DataTableTypes.UIColInfo in curr_table_col_info_list:
 		curr_data_table.datas[new_row_name][i.name] = new_row_data.get(i.name)
 	new_row_data.free()
-	ResourceSaver.save(curr_data_table)
+	curr_data_table.save()
 	# add row ui
 	var new_index: int = curr_data_table.datas.size() - 1
 	_add_row(new_index, new_row_name, curr_data_table.datas[new_row_name] as Dictionary)
@@ -363,7 +363,7 @@ func _on_del_row_pressed() -> void:
 		return
 	# write to .tres
 	curr_data_table.datas.erase(curr_data_table.datas.keys()[curr_select_index])
-	ResourceSaver.save(curr_data_table)
+	curr_data_table.save()
 	# remove ui
 	var row_name: DataTableRowName = row_name_property_vbox.get_child(curr_select_index) as DataTableRowName
 	row_name_property_vbox.remove_child(row_name)

@@ -6,34 +6,30 @@
 [resource]
 script = ExtResource("1_j4xbk")
 table_row_script = ExtResource("2_hn4x1")
-datas = {
-"0": {
+storage_datas = Array[Array]([["0", {
 "test_float": 22.0,
 "test_int": 11,
 "test_packed_scene": null,
 "test_string": "abc",
 "test_vector2": Vector2(33, 44)
-},
-"1": {
+}], ["1", {
 "test_float": 2.0,
 "test_int": 1,
 "test_packed_scene": null,
 "test_string": "defgaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 "test_vector2": Vector2(3, 4)
-},
-"2": {
+}], ["2", {
 "test_float": 77.0,
 "test_int": 66,
 "test_packed_scene": null,
 "test_string": "hahahahahahaha",
 "test_vector2": Vector2(88, 99)
-},
-"RowName_2098376810017": {
+}], ["RowName_2098376810017", {
 "test_float": 2.0,
 "test_int": 1,
 "test_packed_scene": null,
 "test_string": "abc",
 "test_vector2": Vector2(3, 4)
-}
-}
+}]])
+_version = "1.0.1"
 metadata/_custom_type_script = "uid://buk2mb3au156s"
